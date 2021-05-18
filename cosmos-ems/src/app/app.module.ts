@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LkrFormatterPipe } from './shared/lkr-formatter.pipe';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     LkrFormatterPipe,
-    ProgressBarComponent
+    ProgressBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
