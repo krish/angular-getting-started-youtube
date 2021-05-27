@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import employees from './data/employees.json';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { EmployeeService } from './employee.service';
+
 import { Employee } from './Employees.model';
 
 @Component({
@@ -7,13 +9,14 @@ import { Employee } from './Employees.model';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.scss']
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesComponent implements OnInit, OnDestroy {
 
   title: string = 'Employee Management Solution......'
-  employees: Employee[] = employees;
-  filteredEmployees: Employee[] = employees;
+  employees!: Employee[];
+  filteredEmployees!: Employee[];
   showIcon: boolean = false;
   message: string = '';
+  substriber!: Subscription;
   private _designationFilter: string = ''
 
   set designationFilter(value: string) {
@@ -27,11 +30,21 @@ export class EmployeesComponent implements OnInit {
     return this._designationFilter;
   }
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+
+    this.substriber = this.employeeService.getEmployees().subscribe({
+      next: data => {
+        this.filteredEmployees = data;
+        this.employees = this.filteredEmployees
+      }
+    })
   }
 
+  ngOnDestroy() {
+    this.substriber.unsubscribe();
+  }
   toggleIcon() {
     this.showIcon = !this.showIcon;
   }

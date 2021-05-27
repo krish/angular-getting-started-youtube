@@ -6,8 +6,8 @@
                 <div class="card-body text-center">
                     <h4 class="card-title">List All Employees</h4>
                     <p class="card-text">List All Employees who are available in the system</p>
-                    <!-- <a class="btn btn-primary" routerLink='/employees'>List All</a> -->
-                    <a class="btn btn-primary" >List All</a>
+                    
+                    <a class="btn btn-primary" (click)="loadEmployees()">List All</a>
                 </div>
             </div>
             <div class="card" style="width:400px">
@@ -15,7 +15,7 @@
                 <div class="card-body text-center">
                     <h4 class="card-title">Register new Employee</h4>
                     <p class="card-text">Create new employee record in the system with personal data</p>
-                    <a href="#" class="btn btn-primary">Create</a>
+                    <a  class="btn btn-primary" [routerLink]="['/employees',10]">Create</a>
                 </div>
             </div>
         </div>

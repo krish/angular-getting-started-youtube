@@ -8,10 +8,11 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-4">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink='/home'>HOME</a>
+                    <a class="nav-link" routerLink='/home' >HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink='/employees'>List Employees</a>
+                    <!-- <a class="nav-link" [routerLink]="['/employees',10]">List Employees</a> -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link ">Search</a>
@@ -31,5 +32,5 @@
     </nav>
 </div>
 <div>
-    <em-employees></em-employees>
+    <router-outlet></router-outlet>
 </div>
