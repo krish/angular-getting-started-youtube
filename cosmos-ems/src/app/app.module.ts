@@ -10,6 +10,7 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { CreateEmployeeGuard } from './employees/create-employee.guard';
+import { EmployeeViewComponent } from './employee-view/employee-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateEmployeeGuard } from './employees/create-employee.guard';
     EmployeesComponent,
     LkrFormatterPipe,
     ProgressBarComponent,
-    HomeComponent
+    HomeComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { CreateEmployeeGuard } from './employees/create-employee.guard';
       { path: 'employees', component: EmployeesComponent },
       { path: 'employees/:id', component: EmployeesComponent, canActivate: [CreateEmployeeGuard] },
       { path: 'home', component: HomeComponent },
+      {path:'empview/:id',component:EmployeeViewComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ])
   ],

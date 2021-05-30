@@ -1,0 +1,70 @@
+<div class="container" style="margin-top: 10rem">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">User View</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">id: {{ employee?.id }}</li>
+            <li class="list-group-item">
+              firstName: {{ employee?.firstName }}
+            </li>
+            <li class="list-group-item">lastName: {{ employee?.lastName }}</li>
+            <li class="list-group-item">
+              designation: {{ employee?.designation }}
+            </li>
+            <li class="list-group-item">
+              insuranceBalance: {{ employee?.insuranceBalance }}
+            </li>
+            <li class="list-group-item">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    Show RBT &nbsp;
+                    <input type="checkbox" [(ngModel)]="checkboxFlag" />
+                  </div>
+                </div>
+                <input
+                  type="number"
+                  [value]="checkboxFlag ? employee?.rbtProgress : ''"
+                  class="form-control"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">User Edit</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">id: <input type="text" #eid /></li>
+            <li class="list-group-item">
+              firstName: <input type="text" #efname />
+            </li>
+            <li class="list-group-item">
+              lastName: <input type="text" #elname />
+            </li>
+            <li class="list-group-item">
+              designation: <input type="text" #edes />
+            </li>
+            <li class="list-group-item">RBT : <input type="text" #rbt /></li>
+            <button type="button" class="btn btn-primary">
+              Update Employee
+            </button>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <button
+    type="button"
+    class="btn btn-primary btn-lg btn-block"
+    (click)="backClicked()"
+  >
+    Go back
+  </button>
+</div>

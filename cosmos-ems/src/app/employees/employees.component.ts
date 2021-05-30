@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from './employee.service';
 
@@ -30,7 +31,7 @@ export class EmployeesComponent implements OnInit, OnDestroy {
     return this._designationFilter;
   }
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -56,4 +57,7 @@ export class EmployeesComponent implements OnInit, OnDestroy {
     this.message = value;
   }
 
+  onRouteChange(empId: string) {
+    this.router.navigate(['empview', empId]);
+  }
 }
